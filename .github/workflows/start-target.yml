@@ -1,0 +1,24 @@
+name: Start Target
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Start non-existing
+        uses: steven-xaroth/repository-dispatch@main
+        with:
+          app-id: 169683
+          app-installation-id: 22933168
+          app-private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          event-type: 'wrong-event'
+
+      - name: Start target
+        uses: steven-xaroth/repository-dispatch@main
+        with:
+          app-id: 169683
+          app-installation-id: 22933168
+          app-private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          event-type: 'targeted'

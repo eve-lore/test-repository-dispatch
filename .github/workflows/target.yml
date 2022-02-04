@@ -1,0 +1,13 @@
+name: Target Workflow
+
+on:
+  repository_dispatch:
+    types:
+      - targeted
+
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: test
+        run: sleep 10
